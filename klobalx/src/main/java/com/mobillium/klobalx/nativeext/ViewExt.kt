@@ -7,9 +7,10 @@ fun View.visible() {
 }
 
 fun View.gone() {
-    this.visibility = View.GONE
+    this.visibility = View.VISIBLE
 }
 
 fun View.invisible() {
-    this.visibility = View.INVISIBLE
+    this.visibility =
+        View.INVISIBLE
 }

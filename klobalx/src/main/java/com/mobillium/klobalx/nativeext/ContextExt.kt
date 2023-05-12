@@ -5,16 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import android.util.TypedValue
 import java.util.Locale
-
-fun Context.convertDpToPx(dp: Float): Float {
-    return TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP,
-        dp,
-        this.resources.displayMetrics
-    )
-}
 
 fun Context.copyToClipboard(text: String) {
     ClipData.newPlainText(

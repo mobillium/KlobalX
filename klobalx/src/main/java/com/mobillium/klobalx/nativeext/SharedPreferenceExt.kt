@@ -2,12 +2,6 @@ package com.mobillium.klobalx.nativeext
 
 import android.content.SharedPreferences
 
-inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
-    val editor = edit()
-    editor.func()
-    editor.apply()
-}
-
 inline fun <reified T : Any> SharedPreferences.get(key: String, defaultValue: T? = null): T? {
     return when (T::class) {
         String::class -> getString(key, defaultValue as? String) as T?
@@ -19,23 +13,34 @@ inline fun <reified T : Any> SharedPreferences.get(key: String, defaultValue: T?
     }
 }
 
-inline fun SharedPreferences.put(func: SharedPreferences.Editor.() -> Unit) {
+inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
     val editor = edit()
     editor.func()
     editor.apply()
 }
 
-fun SharedPreferences.put(vararg pairs: Pair<String, Any>) {
+fun SharedPreferences.set(vararg pairs: Pair<String, Any>) {
     val editor = edit()
     pairs.forEach {
-        editor.put(it)
+        editor.set(it)
     }
     editor.apply()
 }
 
-fun SharedPreferences.Editor.put(pair: Pair<String, Any>) {
-    val key = pair.first
-    when (val value = pair.second) {
+fun SharedPreferences.Editor.set(pair: Pair<String, Any>) {
+    val (key: String, value: Any) = pair
+    when (value) {
+        is String -> putString(key, value)
+        is Int -> putInt(key, value)
+        is Boolean -> putBoolean(key, value)
+        is Float -> putFloat(key, value)
+        is Long -> putLong(key, value)
+        else -> throw UnsupportedOperationException("Unsupported type") // TODO: Add Gson library and set GsonSerialization
+    }
+}
+
+fun SharedPreferences.Editor.set(key: String, value: Any) {
+    when (value) {
         is String -> putString(key, value)
         is Int -> putInt(key, value)
         is Boolean -> putBoolean(key, value)

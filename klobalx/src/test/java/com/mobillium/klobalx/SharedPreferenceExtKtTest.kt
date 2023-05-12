@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.mobillium.klobalx.nativeext.edit
 import com.mobillium.klobalx.nativeext.get
-import com.mobillium.klobalx.nativeext.put
+import com.mobillium.klobalx.nativeext.set
 import junit.framework.TestCase.assertEquals
 import org.junit.After
 import org.junit.Assert.assertThrows
@@ -29,7 +29,7 @@ class SharedPreferencesExtensionsInstrumentedTest {
     @Test
     fun testSharedPreferencesExtensions() {
         // Put values into SharedPreferences
-        sharedPreferences.put(
+        sharedPreferences.set(
             "name" to "John",
             "age" to 25,
             "isMarried" to true,
@@ -43,7 +43,7 @@ class SharedPreferencesExtensionsInstrumentedTest {
     @Test
     fun `testSharedPreferencesExtensions put Different way`() {
         // Put values into SharedPreferences
-        sharedPreferences.put(
+        sharedPreferences.set(
             "name" to "John",
             "age" to 25,
             "isMarried" to true,
@@ -57,7 +57,7 @@ class SharedPreferencesExtensionsInstrumentedTest {
     @Test
     fun `testSharedPreferencesExtensions Put None`() {
         // Put values into SharedPreferences
-        sharedPreferences.put()
+        sharedPreferences.set()
 
 
         val name = sharedPreferences.get<String>("name")
@@ -77,7 +77,7 @@ class SharedPreferencesExtensionsInstrumentedTest {
     @Test
     fun `testSharedPreferencesExtensions Put None But With Default`() {
         // Put values into SharedPreferences
-        sharedPreferences.put()
+        sharedPreferences.set()
 
 
         val name = sharedPreferences.get<String>("name", "John")
@@ -98,7 +98,7 @@ class SharedPreferencesExtensionsInstrumentedTest {
     fun `testSharedPreferencesExtensions Put CustomType`() {
         // Put values into SharedPreferences
         assertThrows(UnsupportedOperationException::class.java) {
-            sharedPreferences.put("locale" to Locale.CANADA)
+            sharedPreferences.set("locale" to Locale.CANADA)
         }
     }
 

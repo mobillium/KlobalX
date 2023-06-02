@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 fun Activity.showKeyboard() =
     WindowCompat.getInsetsController(window, window.decorView).show(WindowInsetsCompat.Type.ime())
 
-fun Fragment.showKeyboard() = activity?.showKeyboard()
+fun Fragment.showKeyboard() = requireActivity().showKeyboard()
 
 fun Activity.hideKeyboard() =
     WindowCompat.getInsetsController(window, window.decorView).hide(WindowInsetsCompat.Type.ime())

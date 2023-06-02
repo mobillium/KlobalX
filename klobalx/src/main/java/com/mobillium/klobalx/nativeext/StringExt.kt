@@ -4,6 +4,9 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 
+const val EMPTY_STRING = ""
+const val SPACE_STRING = " "
+
 fun String.getColorizedSpannable(
     vararg strings: String,
     color: Int,

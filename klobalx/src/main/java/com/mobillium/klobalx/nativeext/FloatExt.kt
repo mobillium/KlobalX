@@ -1,3 +1,4 @@
 package com.mobillium.klobalx.nativeext
 
-fun Float?.orZero() = this ?: false
+val Float?.orZero: Float
+    get() = this ?: 0.0f

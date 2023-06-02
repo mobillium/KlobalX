@@ -5,20 +5,17 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 
 fun String.getColorizedSpannable(
-    flags: Int = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE,
+    vararg strings: String,
     color: Int,
-    vararg strings: String
+    flags: Int = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
 ): SpannableString {
     return SpannableString(this).apply {
-        for (i in strings.indices) {
-
-            val startIndex = this.indexOf(strings.get(i))
-            val endIndex = startIndex + strings.get(i).length
+        strings.forEach { string ->
+            val startIndex = this.indexOf(string)
+            val endIndex = startIndex + string.length
 
             setSpan(
                 ForegroundColorSpan(color),
-
-
                 startIndex,
                 endIndex,
                 flags

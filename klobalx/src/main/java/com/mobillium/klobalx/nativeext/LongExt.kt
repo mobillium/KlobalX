@@ -1,3 +1,4 @@
 package com.mobillium.klobalx.nativeext
 
-fun Long?.orZero() = this ?: -1L
+val Long?.orZero: Long
+    get() = this ?: 0L

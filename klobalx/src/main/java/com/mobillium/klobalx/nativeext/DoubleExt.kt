@@ -1,3 +1,4 @@
 package com.mobillium.klobalx.nativeext
 
-fun Double?.orZero() = this ?: 0.0
+val Double?.orZero: Double
+    get() = this ?: 0.0

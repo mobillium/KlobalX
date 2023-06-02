@@ -1,3 +1,4 @@
 package com.mobillium.klobalx.nativeext
 
-fun Int?.orZero() = this ?: 0
+val Int?.orZero: Int
+    get() = this ?: 0

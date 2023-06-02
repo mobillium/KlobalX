@@ -1,3 +1,4 @@
 package com.mobillium.klobalx.nativeext
 
-fun Boolean?.orFalse() = this ?: false
+val Boolean?.orFalse: Boolean
+    get() = this ?: false

@@ -14,3 +14,13 @@ inline fun <reified T : Parcelable> Bundle?.getParcelable(key: String): T? = whe
     Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> this?.getParcelable(key, T::class.java)
     else -> @Suppress("DEPRECATION") (this?.getParcelable(key)) as? T
 }
+
+inline fun <reified T : Parcelable> Bundle.getParcelableArrayList(key: String): ArrayList<T>? = when {
+    Build.VERSION.SDK_INT >= 33 -> getParcelableArrayList(key, T::class.java)
+    else -> @Suppress("DEPRECATION") getParcelableArrayList(key)
+}
+
+inline fun <reified T: Parcelable> Bundle.getParcelableArray(key: String): Array<out Parcelable>? = when {
+    Build.VERSION.SDK_INT >= 33 -> getParcelableArray(key, T::class.java)
+    else -> @Suppress("DEPRECATION") getParcelableArray(key)
+}

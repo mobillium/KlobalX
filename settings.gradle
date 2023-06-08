@@ -3,7 +3,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        mavenCentral { url "https://jitpack.io" }
+        mavenLocal()
     }
 }
 dependencyResolutionManagement {
@@ -11,7 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenCentral { url "https://jitpack.io" }
+        mavenLocal()
     }
 }
 rootProject.name = "KlobalX"

@@ -21,7 +21,7 @@ inline val Activity.className: String
  * @param message The text message to be displayed in the toast.
  * @param duration Optional duration of the toast.
  */
-fun Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+fun Activity.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, duration).show()
 }
 

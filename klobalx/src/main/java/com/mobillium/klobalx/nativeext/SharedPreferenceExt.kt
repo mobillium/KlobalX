@@ -29,14 +29,7 @@ fun SharedPreferences.set(vararg pairs: Pair<String, Any>) {
 
 fun SharedPreferences.Editor.set(pair: Pair<String, Any>) {
     val (key: String, value: Any) = pair
-    when (value) {
-        is String -> putString(key, value)
-        is Int -> putInt(key, value)
-        is Boolean -> putBoolean(key, value)
-        is Float -> putFloat(key, value)
-        is Long -> putLong(key, value)
-        else -> throw UnsupportedOperationException("Unsupported type") // TODO: Add Gson library and set GsonSerialization
-    }
+    set(key, value)
 }
 
 fun SharedPreferences.Editor.set(key: String, value: Any) {

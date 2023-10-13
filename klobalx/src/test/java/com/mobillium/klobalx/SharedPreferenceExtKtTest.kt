@@ -110,6 +110,17 @@ class SharedPreferencesExtensionsInstrumentedTest {
         }
     }
 
+    @Test
+    fun `testSharedPreferencesExtensions Put Pair`() {
+        // Put values into SharedPreferences
+        sharedPreferences.set("name" to "Josh")
+
+        val name = sharedPreferences.get<String>("name", "John")
+
+        // Assert values
+        assertEquals("Josh", name)
+    }
+
     private fun defaultAssert() {
         // Get default values from SharedPreferences
         val name = sharedPreferences.get<String>("name")
